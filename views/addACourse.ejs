@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/forms.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/addACourse.css" />
+  </head>
+
+  <body>
+    <%- include("includes/header.ejs") %>
+    <main id="signup">
+      <h1>Add A Course</h1>
+      <form action="/addCourse" method="POST">
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-control">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-control">
+          <label for="authorName">Author Name</label>
+          <input type="text" id="authorName" name="authorName" required />
+        </div>
+        <div class="form-control">
+          <label for="authorYear">Author Year</label>
+          <input type="text" id="authorYear" name="authorYear" required />
+        </div>
+        <div class="form-control">
+          <label for="summary">Summary</label>
+          <input type="text" id="summary" name="summary" required />
+        </div>
+        <div class="form-control">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" required />
+        </div>
+        <div class="form-control">
+          <label for="learningOutcome">Learning Outcome</label>
+          <input
+            type="text"
+            id="learningOutcome"
+            name="learningOutcome"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="price">Price</label>
+          <input type="text" id="price" name="price" required />
+        </div>
+
+        <div class="form-control">
+          <label for="picture">Thumbnail link</label>
+          <input type="text" id="picture" name="picture" required />
+        </div>
+
+        <button class="btn">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>

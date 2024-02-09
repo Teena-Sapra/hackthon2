@@ -2,6 +2,8 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const db = require("../data/database");
 const session = require("express-session");
+const mongodb = require("mongodb");
+const ObjectId = mongodb.ObjectId;
 
 const router = express.Router();
 
@@ -174,11 +176,55 @@ router.get("/course", async function (req, res) {
     .toArray();
   res.render("course", { courses: courses });
 });
+router.get("/course/:id", async function (req, res) {
+  const courseId = req.params.id;
+  const course = await db
+    .getDb()
+    .collection("courses")
+    .findOne({ _id: new ObjectId(courseId) }, { summary: 0 });
+  res.render("course_inside", { course: course });
+});
 router.get("/about", function (req, res) {
   res.render("about");
 });
 router.get("/contact", function (req, res) {
   res.render("contact");
+});
+router.get("/addCourse", function (req, res) {
+  res.render("addACourse");
+});
+router.post("/addCourse", async function (req, res) {
+  const userData = req.body;
+  const email = userData.email;
+  const title = userData["title"];
+  const authorName = userData.authorName;
+  const authorYear = userData.authorYear;
+  const summary = userData.summary;
+  const description = userData.description;
+  const price = userData.price;
+  const picture = userData.picture;
+  const learningOutcome = userData.learningOutcome;
+
+  const existingUser = await db
+    .getDb()
+    .collection("users")
+    .findOne({ email: email });
+  if (existingUser) {
+    const course = {
+      email: email,
+      title: title,
+      authorName: authorName,
+      authorYear: authorYear,
+      summary: summary,
+      description: description,
+      price: price,
+      picture: picture,
+      learningOutcome: learningOutcome,
+    };
+    await db.getDb().collection("courses").insertOne(course);
+    req.flash("infoSubmit", "Course has been added");
+    res.redirect("/addCourse");
+  }
 });
 
 module.exports = router;

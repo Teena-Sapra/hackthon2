@@ -17,7 +17,8 @@
           <img src="<%=course.picture%>" />
           <h3><%=course.title%></h3>
           <p><%=course.summary%></p>
-          <button class="enroll-button">Enroll Now</button>
+          <!--<button class="enroll-button">Enroll Now</button>-->
+          <a class="enroll-button" href="/course/<%= course._id %>">Enroll Now</a>
         </a>
       </div>
       <%}%> <%}%>

@@ -11,37 +11,34 @@
     <%- include("includes/header.ejs")%>
 
     <div class="course-details-container">
-      <img src="assets/images/blog-2.jpg" alt="Web Development Fundamentals" />
+      <img
+        id="courseImage"
+        src="<%=course.picture%>"
+        alt="Web Development Fundamentals"
+      />
 
       <div class="course-details">
-        <h2>About the Course</h2>
-        <p>
-          Build a solid foundation in web development with this comprehensive
-          course. Learn HTML, CSS, and JavaScript to create engaging and
-          interactive websites. This course is suitable for beginners and covers
-          essential concepts for web development.
-        </p>
+        <h2><%=course.title%></h2>
+        <p><%=course.description%></p>
       </div>
 
       <div class="course-info">
-        <h2>Course Information</h2>
+        <h2>Tutor Information</h2>
         <ul>
-          <li><strong>Author:</strong> John Doe</li>
-          <li><strong>Duration:</strong> 8 weeks</li>
+          <li><strong>Tutor : </strong> <%=course.authorName%></li>
           <li>
-            <strong>Timeline:</strong> Mondays and Wednesdays, 6:00 PM - 8:00 PM
+            <strong>Tutor's year of study : </strong><%=course.authorYear%>
           </li>
+          <li><strong>Price : </strong><%=course.price%></li>
         </ul>
       </div>
 
       <div class="learning-outcomes">
         <h2>Learning Outcomes</h2>
-        <ul>
-          <li>Master HTML for structuring web content</li>
-          <li>Style web pages with CSS for a polished look</li>
-          <li>Implement interactivity using JavaScript</li>
-          <li>Build responsive and user-friendly websites</li>
-        </ul>
+        <%=course.learningOutcomes%>
+      </div>
+      <div>
+        <a class="pay-button" href="">Buy Now</a>
       </div>
     </div>
   </body>
