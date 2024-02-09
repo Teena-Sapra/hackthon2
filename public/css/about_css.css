@@ -1,0 +1,79 @@
+body {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  line-height: 1.6;
+  color: #171717;
+  font-family: "League Spartan", sans-serif;
+}
+
+.green {
+  color: hsl(170, 75%, 41%);
+  display: inline-block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: #171717;
+  margin: 110px auto 30px auto;
+  text-align: center;
+  font-size: 36px;
+  border-bottom: 6px solid #c0392b;
+  padding-bottom: 20px;
+}
+
+/* Styling for the footer */
+.footer-container {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: hsl(180, 3%, 7%);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.footer-section a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #3498db;
+}
+div p a {
+  font-size: 16px;
+}

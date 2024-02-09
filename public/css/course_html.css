@@ -1,0 +1,193 @@
+body {
+  font-family: "Roboto", Arial, Helvetica, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f5f8;
+  color: #333;
+  line-height: 1.6;
+}
+#courseContainer {
+  max-width: 1200px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: bounceIn 1s ease-in-out 0.5s forwards;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.course-link {
+  display: inline-block; /* Ensure the <a> tag behaves like a block-level element */
+  text-decoration: none; /* Remove default underline styling */
+  color: inherit; /* Inherit text color from parent */
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: hsl(170, 75%, 41%);
+  margin-bottom: 30px;
+  font-size: 36px;
+  border-bottom: 2px solid hsl(170, 75%, 41%);
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.course-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: calc(33.3333% - 20px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/*.course-card h3 {
+  margin-top: 5px;
+  color: hsl(170, 75%, 41%);
+  font-size: 24px;
+}*/
+
+.course-card p {
+  margin-top: 5px;
+  font-size: 16px;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.enroll-button {
+  margin-top: 5px;
+  background-color: hsl(170, 75%, 41%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+  background-color: hsl(170, 75%, 41%);
+}
+
+.load-more-button {
+  background-color: hsl(170, 75%, 41%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: hsl(170, 75%, 41%);
+}
+
+.footer-container {
+  text-align: center;
+  padding: 60px 20px;
+  background: hsl(170, 75%, 41%);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  text-align: left;
+  width: 30%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.footer-section a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #e5e5e5;
+}
+body {
+  font-family: "Roboto", Arial, Helvetica, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to right,
+    #a6c0fe,
+    hsl(170, 75%, 41%) ;
+  ); /* Linear gradient background */
+  color: #333;
+  line-height: 1.6;
+}
+
+.home-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1000; /* Ensures it's above other elements */
+}
+
+.home-link:hover {
+  text-decoration: underline;
+  color: #e5e5e5;
+}
