@@ -1,0 +1,128 @@
+/* Resetting default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif, helvetica;
+  background: linear-gradient(to bottom, hsl(36, 33%, 94%), white);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.profile_courses:hover {
+  transform: scale(1.08);
+  border: 1px black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.course-image {
+  max-width: 90%;
+  margin-bottom: 5px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333; /* Dark text color */
+}
+
+.profile-header p {
+  font-size: 1.2rem;
+  color: #666; /* Lighter text color */
+}
+
+.courses {
+  background-color: #fff; /* White background for courses section */
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  padding: 20px;
+}
+
+.course {
+  border-bottom: 1px solid #eee; /* Light gray border between courses */
+  padding: 20px 0;
+}
+
+.course h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333; /* Dark text color */
+}
+
+.course p {
+  font-size: 1.2rem;
+  color: #666; /* Lighter text color */
+}
+
+/* Hover effect for courses */
+.course:hover {
+  background-color: #f9f9f9; /* Light gray background on hover */
+}
+.profile_courses {
+  margin-left: 20px;
+  display: inline-block;
+  padding: 20px;
+  max-width: 30%;
+  border: 1px black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.user-courses {
+  max-width: 100%;
+}
+.user-info {
+  text-align: center;
+}
+.user-avatar {
+  margin-top: 200px;
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.user-info {
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+}
+.user-avatar {
+  border-radius: 50%;
+}
+.user-courses {
+  max-width: 100%;
+}
+h2,
+h3 {
+  color: hsl(170, 75%, 41%);
+}
+.my_courses {
+  left: 140px;
+  margin-top: 30px;
+}

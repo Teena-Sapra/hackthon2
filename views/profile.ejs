@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Endless</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/css/profile.css" />
+  </head>
+  <body>
+    <%-include("includes/header.ejs")%>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="user-profile">
+          <div class="user-info">
+            <div class="img_circle">
+              <img
+                src="/img/johndoe.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+            </div>
+            <h2 class="user-name"><%=user.designation%></h2>
+            <p class="user-email"><%=user.email%></p>
+          </div>
+          <div class="user-courses">
+            <h2 class="my_courses">My Courses</h2>
+            <% if(courses.length!=0){ %> <% for(const course of courses){%>
+            <div class="profile_courses">
+              <img src="<%=course.picture%>" class="course-image" />
+              <div class="course-info">
+                <h3><%=course.title%></h3>
+              </div>
+            </div>
+            <% }} %>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("includes/footer.ejs")%>
+  </body>
+</html>

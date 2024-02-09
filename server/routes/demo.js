@@ -162,11 +162,14 @@ router.post("/logout", function (req, res) {
   res.redirect("/");
 });
 
-router.get("/profile", function (req, res) {
-  if (!res.locals.isAuth) {
-    return res.status(401).render("401");
-  }
-  res.render("profile");
+router.get("/profile", async function (req, res) {
+  const user = req.session.user;
+  const courses = await db
+    .getDb()
+    .collection("courses")
+    .find({ email: user.email }, { title: 1, summary: 1, picture: 1 })
+    .toArray();
+  res.render("profile", { courses: courses, user: user });
 });
 router.get("/course", async function (req, res) {
   const courses = await db
