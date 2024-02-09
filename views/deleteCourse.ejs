@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning Endless</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/course_html.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs")%>
+
+    <div class="container" id="courseContainer">
+      <h2>Your Courses</h2>
+      <% if(courses.length!=0){ %> <% for(const course of courses){%>
+      <div class="course-card">
+        <img src="<%=course.picture%>" />
+        <h3><%=course.title%></h3>
+        <p><%=course.summary%></p>
+
+        <form action="/deleteCourse/<%= course._id %>/delete" method="POST">
+          <button class="enroll-button">Delete Post</button>
+        </form>
+      </div>
+      <%}%> <%}%>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

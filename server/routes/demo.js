@@ -204,6 +204,7 @@ router.post("/addCourse", async function (req, res) {
   const price = userData.price;
   const picture = userData.picture;
   const learningOutcome = userData.learningOutcome;
+  const mode = userData.mode;
 
   const existingUser = await db
     .getDb()
@@ -220,6 +221,7 @@ router.post("/addCourse", async function (req, res) {
       price: price,
       picture: picture,
       learningOutcome: learningOutcome,
+      mode: mode,
     };
     await db.getDb().collection("courses").insertOne(course);
     //alert("Your course has been added");
@@ -242,6 +244,68 @@ router.get("/internshipAndPlacements", async function (req, res) {
     internships: internships,
     placements: placements,
   });
+});
+router.get("/internshipAndPlacements/:id", async function (req, res) {
+  const infoId = req.params.id;
+  const info = await db
+    .getDb()
+    .collection("internships")
+    .findOne({ _id: new ObjectId(infoId) });
+  if (info) {
+    res.render("internship_inside", { internship: info });
+  } else {
+    const info2 = await db
+      .getDb()
+      .collection("placements")
+      .findOne({ _id: new ObjectId(infoId) });
+    res.render("internship_inside", { internship: info2 });
+  }
+});
+router.post("/search", async (req, res) => {
+  try {
+    const locals = {
+      title: "Search",
+      description: "Simple Blog created with NodeJs, Express & MongoDb.",
+    };
+
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    const data = await db
+      .getDb()
+      .collection("courses")
+      .find({
+        $or: [
+          { title: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+          { body: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        ],
+      });
+
+    res.render("search", {
+      data: data,
+      locals: locals,
+      currentRoute: "/",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.get("/deleteCourse", async function (req, res) {
+  const user = req.session.user;
+  const courses = await db
+    .getDb()
+    .collection("courses")
+    .find({ email: user.email }, { title: 1, summary: 1, picture: 1 })
+    .toArray();
+  res.render("deleteCourse", { courses: courses });
+});
+router.post("/deleteCourse/:id/delete", async function (req, res) {
+  const courseId = new ObjectId(req.params.id);
+  const result = await db
+    .getDb()
+    .collection("courses")
+    .deleteOne({ _id: courseId });
+  res.redirect("/deleteCourse");
 });
 
 module.exports = router;

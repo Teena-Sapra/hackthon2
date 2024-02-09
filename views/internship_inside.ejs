@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Endless</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/course_insidecss.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs")%>
+
+    <div class="course-details-container">
+      <img
+        id="courseImage"
+        src="<%=internship.picture%>"
+        alt="Web Development Fundamentals"
+      />
+
+      <div class="course-details">
+        <h2><%=internship.title%></h2>
+        <p><%=internship.description%></p>
+      </div>
+
+      <div class="course-info">
+        <h2>Author Information</h2>
+        <ul>
+          <li><strong>Author : </strong> <%=internship.authorName%></li>
+          <li><strong>Author's batch : </strong><%=internship.authorBatch%></li>
+        </ul>
+      </div>
+    </div>
+    <%- include("includes/footer.ejs")%>
+  </body>
+</html>
