@@ -540,10 +540,6 @@ body {
   border-radius: var(--radius-5);
 }
 
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
-
 .about {
   padding-block-start: 0;
   overflow: hidden;

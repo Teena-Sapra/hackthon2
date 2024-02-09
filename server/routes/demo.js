@@ -227,5 +227,8 @@ router.post("/addCourse", async function (req, res) {
     res.redirect("/addCourse");
   }
 });
+router.get("/internshipAndPlacements", function (req, res) {
+  res.render("/internshipAndPlacements");
+});
 
 module.exports = router;

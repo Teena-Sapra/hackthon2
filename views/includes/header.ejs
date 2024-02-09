@@ -36,10 +36,20 @@
         <li class="navbar-item">
           <a href="/deleteCourse" class="navbar-link">Delete a course</a>
         </li>
+        <% }else if(locals.isAuth){%>
+        <li class="navbar-item">
+          <a href="/course" class="navbar-link" data-nav-link>Courses</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/internshipAndPlacements" class="navbar-link" data-nav-link
+            >Internship and Placement</a
+          >
+        </li>
         <% }else{%>
         <li class="navbar-item">
           <a href="/course" class="navbar-link" data-nav-link>Courses</a>
         </li>
+
         <% } %> <% if(locals.isAuth) { %>
         <li class="navbar-item">
           <a href="/profile" class="navbar-link">Profile</a>
