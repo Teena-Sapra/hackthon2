@@ -166,5 +166,19 @@ router.get("/profile", function (req, res) {
   }
   res.render("profile");
 });
+router.get("/course", async function (req, res) {
+  const courses = await db
+    .getDb()
+    .collection("courses")
+    .find({}, { title: 1, summary: 1, picture: 1 })
+    .toArray();
+  res.render("course", { courses: courses });
+});
+router.get("/about", function (req, res) {
+  res.render("about");
+});
+router.get("/contact", function (req, res) {
+  res.render("contact");
+});
 
 module.exports = router;
