@@ -18,6 +18,7 @@ router.get("/signup", function (req, res) {
       email: "",
       confirmEmail: "",
       password: "",
+      confirmPassword: "",
     };
   }
   req.session.inputData = null;
@@ -42,13 +43,17 @@ router.post("/signup", async function (req, res) {
   const email = userData.email;
   const confirmEmail = userData["confirm-email"];
   const password = userData.password;
+  const confirmPassword = userData.confirmPassword;
+  const designation = userData.designation;
   if (
     !email ||
     !confirmEmail ||
     !password ||
+    !confirmPassword ||
     password.trim() < 6 ||
     email != confirmEmail ||
-    !email.includes("@")
+    !email.includes("@") ||
+    password != confirmPassword
   ) {
     req.session.inputData = {
       hasError: true,
@@ -56,6 +61,8 @@ router.post("/signup", async function (req, res) {
       email: email,
       confirmEmail: confirmEmail,
       password: password,
+      confirmPassword: confirmPassword,
+      designation: designation,
     };
     req.session.save(function () {
       res.redirect("/signup");
@@ -73,6 +80,8 @@ router.post("/signup", async function (req, res) {
       email: email,
       confirmEmail: confirmEmail,
       password: password,
+      confirmPassword: confirmPassword,
+      desgination: designation,
     };
     req.session.save(function () {
       res.redirect("/signup");
@@ -83,6 +92,7 @@ router.post("/signup", async function (req, res) {
   const user = {
     email: email,
     password: hashedPassword,
+    designation: designation,
   };
   await db.getDb().collection("users").insertOne(user);
   res.redirect("/login");
@@ -130,19 +140,19 @@ router.post("/login", async function (req, res) {
   };
   req.session.isAuthenticated = true;
   req.session.save(function () {
-    res.redirect("/profile");
+    res.redirect("/");
   });
 });
 
-/*router.get("/admin", async function (req, res) {
+router.get("/admin", async function (req, res) {
   if (!res.locals.isAuth) {
     return res.status(401).render("401");
   }
-  if (!res.locals.isAdmin) {
+  if (!res.locals.isTutor) {
     return res.status(403).render("403");
   }
   res.render("admin");
-});*/
+});
 
 router.post("/logout", function (req, res) {
   req.session.user = null;

@@ -1266,7 +1266,7 @@ body {
   }
 
   .grid-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   :is(.course, .blog) .grid-list {

@@ -10,7 +10,7 @@ const app = express();
 const MongodbStore = mongodbStore(session);
 const sessionStore = new MongodbStore({
   uri: "mongodb://127.0.0.1:27017",
-  databaseName: "auth-demo",
+  databaseName: "learning-endless",
   collection: "sessions",
 });
 app.use(
@@ -37,9 +37,9 @@ app.use(async function (req, res, next) {
     .getDb()
     .collection("users")
     .findOne({ _id: user.id });
-  const isAdmin = userDoc.isAdmin;
+  const isTutor = userDoc.designation == "tutor";
   res.locals.isAuth = isAuth;
-  res.locals.isAdmin = isAdmin;
+  res.locals.isTutor = isTutor;
   next();
 });
 app.use(demoRoutes);
