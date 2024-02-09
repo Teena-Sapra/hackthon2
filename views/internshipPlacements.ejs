@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning Endless</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/course_html.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs")%>
+
+    <div class="container" id="courseContainer">
+      <h2>Internships</h2>
+      <% if(internships.length!=0){ %> <% for(const internship of
+      internships){%>
+      <div class="course-card">
+        <a href="course_inside.html">
+          <img src="<%=internship.picture%>" />
+          <h3><%=internship.title%></h3>
+          <a
+            class="enroll-button"
+            href="/internshipAndPlacements/<%= internship._id %>"
+            >Read Now</a
+          >
+        </a>
+      </div>
+      <%}%> <%}%>
+    </div>
+    <div class="container" id="courseContainer">
+      <h2>Placements</h2>
+      <% if(placements.length!=0){ %> <% for(const placement of placements){%>
+      <div class="course-card">
+        <a href="course_inside.html">
+          <img src="<%=placement.picture%>" />
+          <h3><%=placement.title%></h3>
+          <a
+            class="enroll-button"
+            href="/internshipAndPlacements/<%= placement._id %>"
+            >Read Now</a
+          >
+        </a>
+      </div>
+      <%}%> <%}%>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -227,8 +227,21 @@ router.post("/addCourse", async function (req, res) {
     res.redirect("/addCourse");
   }
 });
-router.get("/internshipAndPlacements", function (req, res) {
-  res.render("/internshipAndPlacements");
+router.get("/internshipAndPlacements", async function (req, res) {
+  const internships = await db
+    .getDb()
+    .collection("internships")
+    .find({}, { title: 1, picture: 1 })
+    .toArray();
+  const placements = await db
+    .getDb()
+    .collection("placements")
+    .find({}, { title: 1, picture: 1 })
+    .toArray();
+  res.render("internshipPlacements", {
+    internships: internships,
+    placements: placements,
+  });
 });
 
 module.exports = router;
