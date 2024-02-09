@@ -307,5 +307,34 @@ router.post("/deleteCourse/:id/delete", async function (req, res) {
     .deleteOne({ _id: courseId });
   res.redirect("/deleteCourse");
 });
+router.post("/contact", async function (req, res) {
+  const userData = req.body;
+  const email = userData.email;
+  const name = userData.name;
+  const subject = userData.subject;
+  const message = userData.message;
+  if (!email || !name || !subject || !message) {
+    req.session.inputData = {
+      hasError: true,
+      message: "Invalid input - please check your data",
+      email: email,
+      name: name,
+      subject: subject,
+      message: message,
+    };
+    req.session.save(function () {
+      res.redirect("/contact");
+    });
+    return;
+  }
+  const contactDetail = {
+    email: email,
+    name: name,
+    subject: subject,
+    message: message,
+  };
+  await db.getDb().collection("contact").insertOne(contactDetail);
+  res.redirect("/contact");
+});
 
 module.exports = router;
