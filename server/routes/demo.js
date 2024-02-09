@@ -222,6 +222,7 @@ router.post("/addCourse", async function (req, res) {
       learningOutcome: learningOutcome,
     };
     await db.getDb().collection("courses").insertOne(course);
+    //alert("Your course has been added");
     req.flash("infoSubmit", "Course has been added");
     res.redirect("/addCourse");
   }

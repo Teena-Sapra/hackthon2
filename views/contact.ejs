@@ -1,48 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Your E-Learning Platform</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/contact.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+  </head>
+  <body>
     <%- include("includes/header.ejs")%>
-    
-    <form action="submit_form.php" class ="form-contact" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <form action="submit_form.php" class="form-contact" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
 
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required />
 
-        <button type="submit" style="animation: fadeIn 1s ease">Submit</button>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit" style="animation: fadeIn 1s ease">Submit</button>
     </form>
 
-    <footer>
-        <div>
-            <h3> <a href="#" target="_blank" rel="noopener noreferrer" class="atag">Privacy Policy</a></h3>
-            <p>All copyrights reserved &#174 CyberNights</p>
-        </div>
-        <div>
-            <h3>Contact Information</h3>
-            <p>Email: info@example.com</p>
-            <p>Phone: +1 123-456-7890</p>
-        </div>
-        <div>
-            <h3>Follow Us</h3>
-            <p>Connect with us on social media for updates and announcements.</p>
-            <p  class="about-footer-p">Twitter | Facebook | LinkedIn</p>
-        </div>
-    </footer>
-
-</body>
+    <%- include("includes/footer.ejs")%>
+  </body>
 </html>
